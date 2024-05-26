@@ -67,7 +67,7 @@ const initializeDBAndServer = async () => {
     if (dbUser === undefined) {
       const createUserQuery = `
         INSERT INTO 
-          user (username, name, password, gender, location) 
+          user (username, password, gender, location) 
         VALUES 
           (
             '${username}', 
@@ -87,7 +87,7 @@ const initializeDBAndServer = async () => {
 
   // Delete User API
   
-  app.delete("/users/:userId", async (request, response) => {
+  app.delete("/delete/:userId", async (request, response) => {
     const { userId } = request.params;
     const deleteuserQuery = `
       DELETE FROM
